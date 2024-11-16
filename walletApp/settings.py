@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-edu*9vs(vwwg8&3tx$57@mun9%loqr2wx3mpya&_w)ihtsh+y2
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = []
 
 
 # Application definition
@@ -39,7 +39,11 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     # My Apps
     
+    
 ]
+
+
+
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -78,7 +82,7 @@ WSGI_APPLICATION = 'walletApp.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': 'nombre_base_datos',       
+        'NAME': 'WalletApp',       
         'USER': 'root',          
         'PASSWORD': 'root',        
         'HOST': 'localhost',                

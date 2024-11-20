@@ -1,0 +1,18 @@
+<h1>Hola</h1>
+<H2>Bienvenido {{ usuario_autenticado }}</H2>
+<h2>LISTA USUARIOS</h2>
+
+<table>
+    </tr>
+        <th>Nombre</th>
+        <th>Apellido</th>
+    <tr>
+
+
+    {% for us in todos_los_usuarios %}
+        <tr>
+            <td>{{ us.nombre }}</td>
+            <td>{{ us.apellido }}</td>
+        </tr>
+    {% endfor %}
+</table>

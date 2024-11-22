@@ -1,4 +1,5 @@
-from django.shortcuts import render
+from django.shortcuts import render, redirect
+from django.contrib.auth import authenticate, login as login_django
 
 def mi_pagina_inicio(request):
     lista_usuarios = [
@@ -12,5 +13,25 @@ def mi_pagina_inicio(request):
     }
     return render(request, 'mi_pagina_inicio.html', contexto)
 
+
+
 def login(request):
-    return render(request, 'login.html')
+    username = ""
+    
+    if request.method == 'POST':
+        username = request.POST.get('username', default = None)
+        password = request.POST.get('password', default = None)
+        
+        usuario = authenticate(username=username, password=password)
+        
+        if usuario:
+            login_django(request, usuario)
+            print(f'Login successful, {usuario}')
+            return redirect('inicio')
+        else:
+            print('Login failed')
+        
+    ctx = {
+        "username": username,
+    }
+    return render(request, 'login.html', ctx)
